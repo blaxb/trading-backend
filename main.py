@@ -18,8 +18,6 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 if not SUPABASE_URL or not SUPABASE_KEY:
     raise RuntimeError("❌ Missing Supabase credentials. Check your env file.")
 
-app = FastAPI()
-
 # Data model for alert input
 class AlertIn(BaseModel):
     email: str
@@ -173,3 +171,8 @@ def query_setups():
     except Exception as e:
         print("🔥 FINAL ERROR IN query_setups:", e)
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/")
+def root():
+    return {"status": "Backend is live"}
+
