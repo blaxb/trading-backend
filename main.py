@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 import yfinance as yf
 from datetime import datetime, timedelta
 
+app = FastAPI()
+
+
 # Load environment variables from your env file
 load_dotenv(dotenv_path="env")
 
